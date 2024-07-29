@@ -1,0 +1,27 @@
+{% extends "loja/bases/listObjects.html" %}
+
+{% block content %}
+    <h2>Produtos Cadastrados</h2>
+    <a href="{% url 'url_novoProduto' %}"><button>Novo Produto</button></a>
+    <table class="styled-table">
+        <tr>
+            <td><h3>Nome Produto</h3></td>
+            <td><h3>Quantidade Comprada</h3></td>
+            <td><h3>Quantidade Vendida</h3></td>
+        </tr>
+        {% for produto in produtos %}
+            <tr>
+                <td>
+                    <a href="{% url 'url_updateProduto' produto.id %}">{{ produto.nome }}</a>
+                </td>
+                <td>
+                    {{ produto.qtd_comprada }}
+                </td>
+                <td>
+                    {{ produto.qtd_vendida }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock content %}

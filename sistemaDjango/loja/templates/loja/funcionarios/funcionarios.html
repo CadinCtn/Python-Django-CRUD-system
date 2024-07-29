@@ -1,0 +1,23 @@
+{% extends "loja/bases/listObjects.html" %}
+
+{% block content %}
+    <h2>Funcionários Cadastrados</h2>
+    <a href="{% url 'url_novoFuncionario' %}"><button>Novo Funcionário</button></a>
+    <table class="styled-table">
+        <tr>
+            <td><h3>Login</h3></td>
+            <td><h3>Nome</h3></td>
+        </tr>
+        {% for funcionario in funcionarios %}
+            <tr>
+                <td>
+                    <a href="{% url 'url_updateFuncionario' funcionario.id %}">{{ funcionario.login }}</a>
+                </td>
+                <td>
+                    {{ funcionario.nome }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock content %}

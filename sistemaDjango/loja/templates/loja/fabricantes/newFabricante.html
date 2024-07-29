@@ -1,0 +1,11 @@
+{% extends "loja/bases/newObjects.html" %}
+
+{% block content %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+        {% if fabricante %}
+            <a class="back-link" href="{% url 'url_deleteFabricante' fabricante.id %}">Excluir</a>
+        {% endif %}
+        <a href="{% url 'url_fabricantes' %}"><button type="button">Cancelar</button></a>
+{% endblock content %}

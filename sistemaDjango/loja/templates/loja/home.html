@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="topo">
+        <h1>Seja bem-vindo!</h1>        
+    </div>
+    <ul>
+        <li><a href="{% url 'url_funcionarios' %}"><button>Funcionários</button></a></li>
+        <li><a href="{% url 'url_fabricantes' %}"><button>Fabricantes</button></a></li>
+        <li><a href="{% url 'url_produtos' %}"><button>Produtos</button></a></li>
+        <li><a href="{% url 'url_vendas' %}"><button>Vendas</button></a></li>
+        <li><a href="{% url 'url_graficos' %}"><button>Graficos</button></a></li>
+
+    </ul>
+</body>
+</html>

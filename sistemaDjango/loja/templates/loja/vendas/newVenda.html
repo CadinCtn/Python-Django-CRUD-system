@@ -1,0 +1,35 @@
+{% extends "loja/bases/newObjects.html" %}
+
+{% block content %}
+       <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ form_produtos.management_form }}
+        <div id="formset">
+            {% for fp in form_produtos %}
+                <div class="divisao">
+                    {{ fp.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit">Salvar</button>
+        {% if venda %}
+            <a href="{% url 'url_deleteVenda' venda.id %}">
+                <button type="button">Excluir</button>
+            </a>
+        {% endif %}
+           <a href="{% url 'url_vendas' %}"><button type="button">Cancelar</button></a>
+    </form>
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript">
+    $(function() {
+        $('#formset .divisao').formset({
+            prefix: '{{ form_produtos.prefix }}',
+            addText: 'Adicionar Produto',
+            deleteText: 'Remover'
+        });
+    });
+</script>
+{% endblock script %}

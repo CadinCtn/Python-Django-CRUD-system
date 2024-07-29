@@ -1,0 +1,26 @@
+{% extends "loja/bases/listObjects.html" %}
+
+{% block content %}
+    <h2>Vendas Registradas</h2>
+    <a href="{% url 'url_novaVenda' %}"><button>Nova Venda</button></a>
+    <table class="styled-table">
+        <tr>
+            <td><h3>Data</h3></td>
+            <td><h3>Produtos Vendidos</h3></td>
+            <td><h3>Valor Total</h3></td>
+        </tr>
+
+        {% for venda in vendas %}
+            <tr>
+                <td><a href="{% url 'url_updateVenda' venda.id %}">{{ venda.data }}</a></td>
+                <td class="text-left">
+                        {% for produto_venda in venda.produtos_vendidos.all %}
+                            <li>{{ produto_venda.produto.nome }} - Quantidade: {{ produto_venda.quantidade }}</li>
+                        {% endfor %}
+                </td>
+                <td>R${{ venda.valorVenda }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
+

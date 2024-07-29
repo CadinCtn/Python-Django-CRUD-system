@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <a class="back-link" href="{% url 'home' %}">
+        <img src="static/icons/botao-de-inicio.png">
+    </a>
+    <div class="divisao">
+        <a href="{% url 'url_funcionarios' %}"><button>Funcionários</button></a>
+        <a href="{% url 'url_fabricantes' %}"><button>Fabricantes</button></a>
+        <a href="{% url 'url_produtos' %}"><button>Produtos</button></a>
+        <a href="{% url 'url_vendas' %}"><button>Vendas</button></a>
+        <a href="{% url 'url_graficos' %}"><button>Graficos</button></a>
+    </div>
+    
+    {% block content %}
+    {% endblock content %}
+
+</body>
+</html>
+

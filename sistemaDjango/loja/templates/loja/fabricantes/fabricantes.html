@@ -1,0 +1,26 @@
+{% extends "loja/bases/listObjects.html" %}
+
+{% block content %}
+    <h2>Fabricantes Cadastrados</h2>
+    <a href="{% url 'url_novoFabricante' %}"><button>Novo Fabricante</button></a>
+    <table class="styled-table">
+        <tr>
+            <td><h3>CNPJ</h3></td>
+            <td><h3>Razão Social</h3></td>
+
+        </tr>
+        {% for fabricante in fabricantes %}
+            <tr>
+                <td>
+                    <a href="{% url 'url_updateFabricante' fabricante.id %}">{{ fabricante.cnpj }}</a>
+                </td>
+                <td>
+                    {{ fabricante.razao_social }}
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock content %}
+
+
