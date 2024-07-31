@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 class Funcionario(models.Model):
     login = models.CharField(max_length=250, unique=True)
@@ -40,7 +40,7 @@ class Produto(models.Model):
 
 
 class Venda(models.Model):
-    data = models.DateField()
+    data = models.DateField(default=timezone.now().date(), null=True)
     valorVenda = models.DecimalField(max_digits=20, decimal_places=2, default=0)
 
 class ProdutoVenda(models.Model):

@@ -2,15 +2,6 @@
 
 {% block content %}
 
-
-    <form method="GET">
-        <h2>Filtro por ano</h2>
-        <label for="ano">Ano:</label>
-        <input type="number" id="ano" name="ano" value="{{ ano }}">
-        <button type="submit">Buscar</button>
-    </form>
-
     <div id="plotPie_div">{{ plotPie_div|safe }}</div>
-    <div id="plotLine_div">{{ plotLine_div|safe }}</div>
 
 {% endblock content %}

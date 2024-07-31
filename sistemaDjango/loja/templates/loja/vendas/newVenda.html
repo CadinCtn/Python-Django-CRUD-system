@@ -1,7 +1,7 @@
 {% extends "loja/bases/newObjects.html" %}
 
 {% block content %}
-       <form method="post">
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         {{ form_produtos.management_form }}
@@ -18,7 +18,7 @@
                 <button type="button">Excluir</button>
             </a>
         {% endif %}
-           <a href="{% url 'url_vendas' %}"><button type="button">Cancelar</button></a>
+        <a href="{% url 'url_vendas' %}"><button type="button">Cancelar</button></a>
     </form>
 {% endblock content %}
 
@@ -28,7 +28,11 @@
         $('#formset .divisao').formset({
             prefix: '{{ form_produtos.prefix }}',
             addText: 'Adicionar Produto',
-            deleteText: 'Remover'
+            deleteText: 'Remover',
+            removed: function(row) {
+                // Marca o campo de DELETE como verdadeiro
+                row.find('input:hidden[id $= "-DELETE"]').val('on');
+            }
         });
     });
 </script>
